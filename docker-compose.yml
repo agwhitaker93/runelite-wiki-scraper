@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  pipenv:
+    build: .
+    volumes:
+      - ./:/app
+    command: bash -c "pipenv install && pipenv run python main.py"
