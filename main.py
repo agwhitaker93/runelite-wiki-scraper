@@ -1,9 +1,5 @@
-import api
-
-import items
-import npcs
+from src import api, craftables
 
 api.use_cache = True
 
-items.run()
-npcs.run()
+craftables.run()
