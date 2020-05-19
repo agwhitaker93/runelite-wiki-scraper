@@ -5,7 +5,7 @@ import urllib.parse
 from typing import *
 
 use_cache: bool = True
-user_agent: Dict[str, str] = {"User-Agent": "Runelite Wiki Scraper/1.0 (+abex@runelite.net)"}
+headers: Dict[str, str] = {"User-Agent": "Craftables Wiki Scraper/1.0 (andrew.whitaker@outlook.com)"}
 
 
 def get_wiki_api(args: Dict[str, str], continueKey: str) -> Iterator[Any]:
@@ -13,7 +13,7 @@ def get_wiki_api(args: Dict[str, str], continueKey: str) -> Iterator[Any]:
 	while True:
 		url = "https://oldschool.runescape.wiki/api.php?" + urllib.parse.urlencode(args)
 		print("Grabbing " + url)
-		with urllib.request.urlopen(urllib.request.Request(url, headers=user_agent)) as raw:
+		with urllib.request.urlopen(urllib.request.Request(url, headers=headers)) as raw:
 			js = json.load(raw)
 
 		yield js
